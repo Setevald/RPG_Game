@@ -204,7 +204,7 @@ class Enemy(pygame.sprite.Sprite):
         
         self.x_change = 0
         self.y_change = 0
-        
+
     def movement(self):        
         if self.facing == 'left':
             self.x_change -= ENEMY_SPEED
