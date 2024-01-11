@@ -37,7 +37,6 @@ class Game:
                     self.player = Player(self, j , i)
         
     def new(self):
-        self.createTilemap()
         # a new game starts (important to see if the player dies or not or quits the game)
         self.playing = True
         
@@ -143,7 +142,7 @@ class Game:
                 self.new()
                 self.main()
             elif quit_button.is_pressed(mouse_pos, mouse_pressed):
-                self.running = False
+                self.running = False # Set running to False on quit
 
             self.screen.fill(BLUE)  # Background for the win
             self.screen.blit(win_text, win_text_rect)  # Win text
@@ -184,6 +183,6 @@ g.new()
 while g.running:
     g.main()
     g.game_over()
-    
+
 pygame.quit()
 sys.exit()

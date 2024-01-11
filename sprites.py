@@ -101,32 +101,42 @@ class Player(pygame.sprite.Sprite):
             hits = pygame.sprite.spritecollide(self, self.game.blocks, False)
             if hits:
                 if self.x_change > 0:
+                    # Adjust positions of all sprites to maintain integrity
                     for sprite in self.game.all_sprites:
                         sprite.rect.x += PLAYER_SPEED
+                    # Set player character position to the left edge of the blocking object
                     self.rect.x = hits[0].rect.left - self.rect.width
                 if self.x_change < 0:
+                    # Adjust positions of all sprites to maintain integrity
                     for sprite in self.game.all_sprites:
                         sprite.rect.x -= PLAYER_SPEED
+                    # Set player character position to the left edge of the blocking object
                     self.rect.x = hits[0].rect.right 
             
         if direction == "y":
             hits = pygame.sprite.spritecollide(self, self.game.blocks, False)
             if hits:
                 if self.y_change > 0:
+                    # Adjust positions of all sprites to maintain integrity
                     for sprite in self.game.all_sprites:
                         sprite.rect.y += PLAYER_SPEED
+                    # Set player character position to the left edge of the blocking object
                     self.rect.y = hits[0].rect.top - self.rect.height
                 if self.y_change < 0:
+                    # Adjust positions of all sprites to maintain integrity
                     for sprite in self.game.all_sprites:
                         sprite.rect.y -= PLAYER_SPEED
+                    # Set player character position to the left edge of the blocking object
                     self.rect.y = hits[0].rect.bottom
                     
     def animate(self):
         
         if self.facing == "down": 
             if self.y_change == 0:
+                # If not moving vertically, set default down-facing sprite
                 self.image = self.game.character_spritesheet.get_sprite(3, 2, self.width, self.height)
             else:
+                # If moving down, select animation frame based on animation loop
                 self.image = self.down_animations[math.floor(self.animation_loop)]
                 self.animation_loop += 0.1
                 if self.animation_loop >= 3:
@@ -134,8 +144,10 @@ class Player(pygame.sprite.Sprite):
         
         if self.facing == "up":
             if self.y_change == 0:
+                # If not moving vertically, set default up-facing sprite
                 self.image = self.game.character_spritesheet.get_sprite(3, 34, self.width, self.height)
             else:
+                # If moving up, select animation frame based on animation loop
                 self.image = self.up_animations[math.floor(self.animation_loop)]
                 self.animation_loop += 0.1
                 if self.animation_loop >= 3:
@@ -145,6 +157,7 @@ class Player(pygame.sprite.Sprite):
             if self.x_change == 0:
                 self.image = self.game.character_spritesheet.get_sprite(3, 98, self.width, self.height)
             else:
+                # If moving left, select animation frame based on animation loop
                 self.image = self.left_animations[math.floor(self.animation_loop)]
                 self.animation_loop += 0.1
                 if self.animation_loop >= 3:
@@ -154,6 +167,7 @@ class Player(pygame.sprite.Sprite):
             if self.x_change == 0:
                 self.image = self.game.character_spritesheet.get_sprite(3, 66, self.width, self.height)
             else:
+                # If moving right, select animation frame based on animation loop
                 self.image = self.right_animations[math.floor(self.animation_loop)]
                 self.animation_loop += 0.1
                 if self.animation_loop >= 3:
@@ -269,7 +283,7 @@ class Ground(pygame.sprite.Sprite):
         self.width = TILESIZE
         self.height = TILESIZE
         
-        self.image = self.game.terrain_spritesheet.get_sprite(64, 352, self.width, self.height)
+        self.image = self.game.terrain_spritesheet.get_sprite(254, 352, self.width, self.height)
         
         self.rect = self.image.get_rect()
         self.rect.x = self.x
