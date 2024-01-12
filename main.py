@@ -92,7 +92,7 @@ class Game:
         game_over_text = self.font.render('Game Over', True, WHITE)
         game_over_text_rect = game_over_text.get_rect(center=(WIN_WIDTH/2, WIN_HEIGHT/2))
         
-        subtext = self.font.render('Imagine dying', True, WHITE)
+        subtext = self.font.render('Nice try', True, WHITE)
         subtext_rect = subtext.get_rect(center=(WIN_WIDTH/2, WIN_HEIGHT/2 + 50))
         
         restart_button = Button(10, WIN_HEIGHT - 120, 120, 50, WHITE, BLACK, 'Restart', 32)
@@ -129,7 +129,7 @@ class Game:
 
         restart_button = Button(10, WIN_HEIGHT - 120, 120, 50, WHITE, BLACK, 'Restart', 32)
         quit_button = Button(WIN_WIDTH - 130, WIN_HEIGHT - 120, 120, 50, WHITE, BLACK, 'Quit', 32)
-
+        
         while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -154,7 +154,7 @@ class Game:
     def intro_screen(self):
         intro = True
         
-        title = self.font.render('game game', True, BLACK)
+        title = self.font.render('Survive', True, BLACK)
         title_rect = title.get_rect(x=10, y=10)
         
         play_button = Button(10, 50, 100, 50, WHITE, BLACK, 'Play', 32)
@@ -183,6 +183,6 @@ g.new()
 while g.running:
     g.main()
     g.game_over()
-
+    
 pygame.quit()
 sys.exit()

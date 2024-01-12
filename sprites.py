@@ -219,13 +219,15 @@ class Enemy(pygame.sprite.Sprite):
         self.x_change = 0
         self.y_change = 0
 
-    def movement(self):        
+    def movement(self):
+        #movement logic for left        
         if self.facing == 'left':
             self.x_change -= ENEMY_SPEED
             self.movement_loop -= 1
             if self.movement_loop <= -self.max_travel:
                 self.facing = 'right'
-                
+        
+        #movement logic for right            
         if self.facing == 'right':
             self.x_change += ENEMY_SPEED
             self.movement_loop += 1
@@ -233,7 +235,6 @@ class Enemy(pygame.sprite.Sprite):
                 self.facing = 'left'
                 
     def animate(self):
-        
         if self.facing == "left":
             if self.x_change == 0:
                 self.image = self.game.enemy_spritesheet.get_sprite(3, 98, self.width, self.height)
@@ -373,7 +374,6 @@ class Attack(pygame.sprite.Sprite):
         hits =  pygame.sprite.spritecollide(self, self.game.enemies, True)
         
     def animate(self):
-        # Ensure the loop variable name is corrected from `animationj_loop` to `animation_loop`
         direction = self.game.player.facing
 
         if direction == 'up':
