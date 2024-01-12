@@ -8,12 +8,13 @@ A Rpg game where you have to surrounded by the enemies in the middle of nowhere
 ## Screenshots of the game
 
 ### Intro screen
-
+<img alt="image" src="image/Intro screen.png">
 
 ### Main game
-
+<img alt="image" src="image/main game.png">
 
 ### game over
-
+<img alt="image" src="image/game over screen.png.png">
 
 ### game win
+<img alt="image" src="image/Game win screen.png.png">
